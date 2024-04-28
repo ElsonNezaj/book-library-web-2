@@ -41,7 +41,7 @@ const Home = () => {
 
   return (
     <div className={styles.root}>
-      <Header style="v2" />
+      <Header caller="home" style="v2" />
       <div className={styles.content}>
         <main className={`container text-white ${styles.main}`}>
           <h2 className="text-capitalize">LibAdventure</h2>

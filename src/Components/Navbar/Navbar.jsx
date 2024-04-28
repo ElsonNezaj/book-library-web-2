@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import logoImg from "../../Images/logo.png";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
-import { useAuth } from '../../AuthContext'; // Adjust the path as necessary
+import { useAuth } from "../../AuthContext"; // Adjust the path as necessary
 
 const Navbar = (props) => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const { currentUser, logout } = useAuth(); // Destructure currentUser and logout from useAuth
   const navigate = useNavigate();
+  const { caller } = props;
 
   // Close the navbar menu when a link is clicked
   const closeMenu = () => {
@@ -18,7 +19,7 @@ const Navbar = (props) => {
   const handleLogout = async () => {
     try {
       await logout();
-      navigate('/');
+      navigate("/");
     } catch (error) {
       console.error("Failed to log out", error);
     }
@@ -32,56 +33,134 @@ const Navbar = (props) => {
       }
     };
 
-    window.addEventListener('resize', closeMenuOnResize);
+    window.addEventListener("resize", closeMenuOnResize);
 
     return () => {
-      window.removeEventListener('resize', closeMenuOnResize);
+      window.removeEventListener("resize", closeMenuOnResize);
     };
   }, []);
 
+  console.log(caller);
+
   return (
-    <nav className='navbar' id="navbar">
-      <div className='container navbar-content flex'>
-        <div className='brand-and-toggler flex flex-sb'>
-          <Link to="/" className='navbar-brand flex' onClick={closeMenu}>
-            <img src={props.style === 'v2' ? logoImg : logoImg} alt="site logo" className="logo-small" />
+    <nav className="navbar" id="navbar">
+      <div className="container navbar-content flex">
+        <div className="brand-and-toggler flex flex-sb">
+          <Link to="/" className="navbar-brand flex" onClick={closeMenu}>
+            <img
+              src={props.style === "v2" ? logoImg : logoImg}
+              alt="site logo"
+              className="logo-small"
+            />
           </Link>
-          <button type="button" className='navbar-toggler-btn' onClick={() => setToggleMenu(!toggleMenu)}>
-            <HiOutlineMenuAlt3 size={35} style={{
-              color: `${toggleMenu ? "#fff" : "inherit"}`
-            }} />
+          <button
+            type="button"
+            className="navbar-toggler-btn"
+            onClick={() => setToggleMenu(!toggleMenu)}
+          >
+            <HiOutlineMenuAlt3
+              size={35}
+              style={{
+                color: `${toggleMenu ? "#fff" : "inherit"}`,
+              }}
+            />
           </button>
         </div>
 
-        <div className={toggleMenu ? "navbar-collapse show-navbar-collapse" : "navbar-collapse"}>
+        <div
+          className={
+            toggleMenu
+              ? "navbar-collapse show-navbar-collapse"
+              : "navbar-collapse"
+          }
+        >
           <ul className="navbar-nav">
-            <li className='nav-item'>
-              <NavLink to="/" className='nav-link text-uppercase fs-22 fw-6 ls-1' onClick={closeMenu}>Home</NavLink>
+            <li className="nav-item">
+              <NavLink
+                to="/"
+                className={[
+                  "nav-link text-uppercase fs-22 fw-6 ls-1",
+                  caller !== "home" && "blackText",
+                ].join(" ")}
+                onClick={closeMenu}
+              >
+                Home
+              </NavLink>
             </li>
             {/* Conditionally render Favorites link if user is logged in */}
             {currentUser && (
-              <li className='nav-item'>
-                <NavLink to="/favorites" className='nav-link text-uppercase fs-22 fw-6 ls-1' onClick={closeMenu}>Favorites</NavLink>
+              <li className="nav-item">
+                <NavLink
+                  to="/favorites"
+                  className={[
+                    "nav-link text-uppercase fs-22 fw-6 ls-1",
+                    caller !== "home" && "blackText",
+                  ].join(" ")}
+                  onClick={closeMenu}
+                >
+                  Favorites
+                </NavLink>
+              </li>
+            )}
+            {currentUser && (
+              <li className="nav-item">
+                <NavLink
+                  to="/profile"
+                  className={[
+                    "nav-link text-uppercase fs-22 fw-6 ls-1",
+                    caller !== "home" && "blackText",
+                  ].join(" ")}
+                  onClick={closeMenu}
+                >
+                  Profile
+                </NavLink>
               </li>
             )}
             {/* Conditionally render Login or Logout link */}
             {currentUser ? (
-              <li className='nav-item' onClick={handleLogout}>
-                <span className='nav-link text-uppercase fs-22 fw-6 ls-1' style={{cursor: 'pointer'}} onClick={closeMenu}>Logout</span>
+              <li className="nav-item" onClick={handleLogout}>
+                <span
+                  className={[
+                    "nav-link text-uppercase fs-22 fw-6 ls-1",
+                    caller !== "home" && "blackText",
+                  ].join(" ")}
+                  style={{ cursor: "pointer" }}
+                  onClick={closeMenu}
+                >
+                  Logout
+                </span>
               </li>
             ) : (
-              <li className='nav-item'>
-                <NavLink to="/login" className='nav-link text-uppercase fs-22 fw-6 ls-1' onClick={closeMenu}>Log In</NavLink>
+              <li className="nav-item">
+                <NavLink
+                  to="/login"
+                  className={[
+                    "nav-link text-uppercase fs-22 fw-6 ls-1",
+                    caller !== "home" && "blackText",
+                  ].join(" ")}
+                  onClick={closeMenu}
+                >
+                  Log In
+                </NavLink>
               </li>
             )}
-            <li className='nav-item'>
-              <NavLink to="/about" className='nav-link text-uppercase fs-22 fw-6 ls-1' onClick={closeMenu}>About</NavLink>
+            <li className="nav-item">
+              <NavLink
+                to="/about"
+                className={[
+                  "nav-link text-uppercase fs-22 fw-6 ls-1",
+                  caller !== "home" && "blackText",
+                ].join(" ")}
+                onClick={closeMenu}
+              >
+                About
+              </NavLink>
             </li>
           </ul>
         </div>
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;
