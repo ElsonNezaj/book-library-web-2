@@ -1,0 +1,98 @@
+/* General styling for the signup page container */
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 60px); /* Adjust based on Navbar height */
+    background-color: #f0f2f5; /* Soft gray background */
+    transition: all 0.3s ease; /* Smooth transitions */
+  }
+  
+  /* Styling for the signup form */
+  .signup-form {
+    padding: 30px; /* Increased padding */
+    background-color: white;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    width: 320px; /* Slightly wider */
+    text-align: center; /* Center-align form content */
+    transition: all 0.3s ease; /* Smooth transitions */
+  }
+  
+  .signup-form h2 {
+    font-size: 24px; /* Larger font size */
+    margin-bottom: 20px;
+    font-family: 'Helvetica Neue', sans-serif; /* Apple-style font */
+    color: #333; /* Darker text color */
+  }
+  
+  .input-group {
+    margin-bottom: 20px; /* Increased spacing between input groups */
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 8px; /* More space between label and input */
+    font-size: 14px; /* Adjusted font size */
+    color: #555; /* Softer text color */
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 12px; /* Increased padding */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 6px; /* Rounded corners */
+    transition: border 0.3s ease; /* Smooth border transition */
+  }
+  
+  .input-group input:focus {
+    border-color: #007bff; /* Blue border on focus */
+  }
+  
+  .signup-button { /* Styling for the signup button */
+    width: 100%;
+    padding: 12px; /* Consistent padding */
+    background-color: #28a745; /* Green background */
+    color: white;
+    border: none;
+    border-radius: 6px; /* Rounded corners */
+    font-size: 16px; /* Larger font size */
+    font-weight: bold; /* Bolder text */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition */
+  }
+  
+  .signup-button:hover {
+    background-color: #218838; /* Darker on hover */
+  }
+  
+  /* Improved error message styling */
+  .signup-error {
+    padding: 12px; /* Consistent padding */
+    background-color: #ffe6e6; /* Soft red background */
+    color: #cc0000; /* Darker red text */
+    border-radius: 6px; /* Rounded corners */
+    text-align: center; /* Center-align the text */
+    font-size: 14px; /* Adjusted font size */
+    font-family: 'Helvetica Neue', sans-serif; /* Apple-style font */
+    margin-top: 20px; /* Margin at the bottom */
+    transition: opacity 0.3s ease; /* Smooth fade-in effect */
+  }
+  
+  /* Styling for the link to other pages */
+  .signup-link {
+    color: #007bff; /* Blue text */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition */
+  }
+  
+  .signup-link:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  
+  .signup-text {
+    margin-top: 20px; /* Margin at the bottom */
+    text-align: center; /* Center-align the text */
+    font-size: 14px; /* Consistent font size */
+  }
+  

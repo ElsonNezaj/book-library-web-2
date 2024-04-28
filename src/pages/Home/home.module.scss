@@ -1,0 +1,57 @@
+.root {
+    min-height: -webkit-fill-available;
+    background: linear-gradient(rgba(2, 0, 3, 0.151), rgba(0, 0, 0, 0.407)), url("../../Images/cover.jpg") center/cover no-repeat;
+    height: 100vh;
+  }
+  
+  .content { // New section to hold centered content
+    display: -ms-flexbox;
+    flex-direction: column;
+    justify-content: center; // Centers content vertically
+    align-items: center; // Centers content horizontally
+    height: 100%; // Takes up the remaining space after the header
+    margin-top: 0px;
+    margin-bottom: 0;
+    padding-top: 250px;
+  }
+  
+  .main {
+    margin: 0 auto;
+    max-width: 770px;
+    text-align: center;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center; // Centers buttons
+    gap: 1rem; // Adds spacing between buttons
+  }
+
+  .bookGrid {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); // Default for larger screens
+    gap: 1rem; // Space between grid items
+    padding: 1rem;
+    // Responsive behavior using media queries
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr); // Adjust for tablets
+    }
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr); // Adjust for small tablets and large mobile devices
+    }
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr; // Single column for mobile devices
+    }
+  }
+  
+  
+  .bookGrid h2 {
+    font-size: center;
+    margin-bottom: 1rem;
+  }
+  

@@ -1,0 +1,50 @@
+.commentSection {
+    margin-top: 2rem;
+  }
+  
+  .comments {
+    margin-top: 1rem;
+  }
+  
+  .comment {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+  }
+  
+  .comment p {
+    margin: 0;
+  }
+  
+  .commentInput {
+    margin-top: 2rem;
+  }
+  
+  .commentInput textarea {
+    width: calc(100% - 2rem); /* Adjusted width to fill available space */
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  .commentInput button {
+    margin-top: 0.5rem;
+    padding: 2rem 1rem; /* Adjust padding to provide more height */
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    vertical-align: middle;
+  }
+  
+  
+  
+  .commentInput button:hover {
+    background-color: #0056b3;
+  }
+  

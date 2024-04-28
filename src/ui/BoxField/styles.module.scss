@@ -1,0 +1,8 @@
+.root {
+    input {
+        display: none;
+    }
+    &:has(input:checked) {
+        color: var(--orange-color);
+    }
+}

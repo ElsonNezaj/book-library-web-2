@@ -1,0 +1,17 @@
+.root {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.5rem;
+    max-width: 20.5rem;
+    >div {
+        background-color: #e0e0e0;
+        margin: auto 0;
+        border-radius: 1rem;
+        overflow: hidden;
+        height: 0.5rem;
+        >div {
+            background-color: rgb(255, 193, 7);
+            height: inherit;
+        }
+    }
+}
