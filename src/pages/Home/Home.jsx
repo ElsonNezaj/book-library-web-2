@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import styles from './home.module.scss';
-import Header from '../../Components/Header/Header';
-import SearchForm from '../../Components/SearchForm/SearchForm';
-import Book from '../../Components/BookList/Book';
-import {transformBooks2} from '../../lib/transformBooks';
-import coverImg from '../../Images/cover_not_found.jpg'; // Fallback image
+import React, { useState, useEffect } from "react";
+import styles from "./home.module.scss";
+import Header from "../../Components/Header/Header";
+import SearchForm from "../../Components/SearchForm/SearchForm";
+import Book from "../../Components/BookList/Book";
+import { transformBooks2 } from "../../lib/transformBooks";
+import coverImg from "../../Images/cover_not_found.jpg"; // Fallback image
 
 // Function to fetch popular books and transform them
 const fetchPopularBooks = async () => {
   try {
-    const response = await fetch("https://openlibrary.org/subjects/popular.json"); // Endpoint for popular books
+    const response = await fetch(
+      "https://openlibrary.org/subjects/popular.json"
+    ); // Endpoint for popular books
     const data = await response.json();
 
     console.log(data);
@@ -42,28 +44,28 @@ const Home = () => {
       <Header style="v2" />
       <div className={styles.content}>
         <main className={`container text-white ${styles.main}`}>
-          <h2 className='text-capitalize'>LibAdventure</h2>
-          <p className='fs-18 fw-3'>
-          Turn the page on tradition, the digital age is here.  
+          <h2 className="text-capitalize">LibAdventure</h2>
+          <p className="fs-18 fw-3">
+            Turn the page on tradition, the digital age is here.
           </p>
           <SearchForm />
         </main>
         <div className={styles.buttons}>
-          <a href='https://facebook.com' target='_blank' className='btn-icon'>
-            <img alt='Play Store' src='/playstore.svg' />
+          <a href="/book-library.apk" className="btn-icon">
+            <img alt="Play Store" src="/playstore.svg" />
           </a>
-          <a href='https://facebook.com' className='btn-icon'>
-            <img alt='Apple Store' src='/apple.png' />
+          <a href="/" className="btn-icon">
+            <img alt="Apple Store" src="/apple.png" />
           </a>
         </div>
       </div>
-      
+
       {/* Section for book grid */}
       <section className={styles.bookGrid}>
         <h2>Most Popular Books</h2> {/* Heading for the grid */}
         <div className={styles.grid}>
           {popularBooks.map((book, index) => (
-            <Book key={index} {...book} /> 
+            <Book key={index} {...book} />
           ))}
         </div>
       </section>
