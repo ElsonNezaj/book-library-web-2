@@ -1,8 +1,16 @@
-import { Link } from 'react-router-dom';
-import styles from './book.module.scss';
-import coverImg from '../../Images/cover_not_found.jpg'; // Fallback image
+import { Link } from "react-router-dom";
+import styles from "./book.module.scss";
+import coverImg from "../../Images/cover_not_found.jpg"; // Fallback image
 
-const Book = ({ id, cover_id, title, author, edition_count, first_publish_year }) => {
+const Book = ({
+  id,
+  cover_id,
+  title,
+  author,
+  edition_count,
+  first_publish_year,
+  cover_img,
+}) => {
   // Generate the cover image URL, use fallback if undefined
   const coverImage = cover_id
     ? `https://covers.openlibrary.org/b/id/${cover_id}-L.jpg`
@@ -12,9 +20,12 @@ const Book = ({ id, cover_id, title, author, edition_count, first_publish_year }
   const bookId = id.split("/").pop();
 
   return (
-    <Link to={`/book/${bookId}`} className={styles.root}> {/* Use bookId in the link */}
+    <Link to={`/book/${bookId}`} className={styles.root}>
+      {" "}
+      {/* Use bookId in the link */}
       <span className={styles.img}>
-        <img src={coverImage} alt={`Cover of ${title}`} /> {/* Display the cover */}
+        <img src={cover_img} alt={`Cover of ${title}`} />{" "}
+        {/* Display the cover */}
       </span>
       <span className={styles.main}>
         <b>{title}</b>
